@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+data/*.csv
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk

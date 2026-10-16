@@ -1,0 +1,14 @@
+metric,value
+Real data: NA / NR segments (rules),3734 / 76
+Real data: NA / NR segments (RF),3738 / 72
+Real data: damage segments found (rules / RF),0 / 0
+Real data: agreement,99.90 %
+Hand-placed faults: events typed correctly (rules),"MV 3/3, OL 11/11, FDI 3/3"
+Hand-placed faults: events typed correctly (RF),"MV 3/3, OL 11/11, FDI 3/3"
+Hand-placed faults: false-alarm segments (rules / RF),6 / 0
+Random hold-out: state accuracy (rules / RF),0.923 / 0.983
+Random hold-out: ringdown (NR) recall (rules / RF),0.705 / 0.921
+Random hold-out: DR recall (rules / RF),0.437 / 0.414
+Random hold-out: events typed correctly (rules),"MV 64/72, OL 131/140, FDI 38/40"
+Random hold-out: events typed correctly (RF),"MV 69/72, OL 137/140, FDI 40/40"
+Random hold-out: false-alarm segments (rules / RF),333 / 4
