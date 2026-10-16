@@ -54,4 +54,4 @@ Output CSVs and PNGs are written to the folder you run from. Sample outputs are 
 Recovery of degraded data, mode estimation (TLS-ESPRIT), stability assessment.
 
 ## Data
-The PMU record was provided by the supervisor and is not redistributed here.
+The PMU record was provided by the supervisor and is included in `data/data.csv`.

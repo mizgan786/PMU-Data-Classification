@@ -1,6 +1,5 @@
 __pycache__/
 *.pyc
-data/*.csv
 *.aux
 *.log
 *.out
@@ -13,3 +12,4 @@ data/*.csv
 /result_*.png
 /rf_feature_importance.csv
 /comparison_results.csv
+report/

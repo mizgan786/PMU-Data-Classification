@@ -1,1 +1,1 @@
-Place the PMU record here as data/data.csv (two columns: time in s, power in MW). It is not included in this repository.
+PMU record used in this project (two columns: time in s, power in MW), provided by the supervisor.
