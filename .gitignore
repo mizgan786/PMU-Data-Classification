@@ -7,3 +7,9 @@ data/*.csv
 *.toc
 *.fls
 *.fdb_latexmk
+.venv/
+.DS_Store
+/labels_*.csv
+/result_*.png
+/rf_feature_importance.csv
+/comparison_results.csv
