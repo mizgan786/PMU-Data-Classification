@@ -55,3 +55,40 @@ Recovery of degraded data, mode estimation (TLS-ESPRIT), stability assessment.
 
 ## Data
 The PMU record was provided by the supervisor and is included in `data/data.csv`.
+
+cat >> README.md <<'E'
+
+## Recovery of degraded data
+`recovery.py` repairs the samples flagged by the classifier, one method per fault type:
+
+| Fault | Method |
+|---|---|
+| OL (outliers) | cubic-spline interpolation over the spike |
+| FDI (offset) | find the up/down steps, estimate the offset, subtract it |
+| MV (missing, zeros, stuck) | spline for gaps up to 0.5 s; autoregressive (AR) model predicting from both sides, blended, for longer gaps |
+
+Only flagged samples are changed. Evaluation (`recovery_eval.py`): five random fault-injection
+scenarios, RMSE in MW against the true signal (lower is better):
+
+| Fault | Where | Straight-line fill | Proposed |
+|---|---|---|---|
+| OL | ambient | 0.19 | 0.21 |
+| MV, 0.5-3 s | ambient | 5.29 | 3.65 |
+| MV, over 3 s | ambient | 4.17 | 3.00 |
+| MV, 0.5-3 s | ringdown | 25.05 | 6.68 |
+| MV, over 3 s | ringdown | 52.53 | 12.34 |
+| FDI | ambient | 12.02 | 12.02 |
+| All faults | all | 12.59 | 11.51 |
+
+Clean samples change by only 0.1 MW RMSE. Limits: a gap of several seconds in ambient data
+cannot be recovered exactly (the fill is a smooth bridge), and offsets or outliers that the
+classifier misses, especially inside ringdowns, stay uncorrected.
+
+![Recovery examples](results/result_recovery_examples.png)
+
+```bash
+python3 recovery.py --data data/data.csv        # 17 hand-placed faults
+python3 recovery_eval.py --data data/data.csv   # random scenarios, writes recovery_results.csv
+python3 plot_recovery.py                        # example figure
+```
+E
